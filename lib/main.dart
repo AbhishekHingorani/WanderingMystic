@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'travel_packages/pakage_list.dart';
 
 void main() => runApp(new MyApp());
 
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'SFProHeavy'),
       home: DefaultTabController(
         length: 4,
         child: new Scaffold(
@@ -24,10 +26,7 @@ class MyApp extends StatelessWidget {
                 child: Center(child: Text("Products")),
                 color: Colors.white,
               ),
-              new Container(
-                child: Center(child: Text("Travel")),
-                color: Colors.white,
-              ),
+              new PackageList(),
               new Container(
                 child: Center(child: Text("Profile")),
                 color: Colors.white,
@@ -64,7 +63,7 @@ class MyApp extends StatelessWidget {
               indicatorColor: Color.fromRGBO(226, 197, 125, 1.0),
             ),
           ),
-          backgroundColor: Colors.black,
+          backgroundColor: Color.fromRGBO(64, 46, 50, 1.0),
         ),
       ),
     );

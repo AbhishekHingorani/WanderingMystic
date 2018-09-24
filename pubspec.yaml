@@ -47,11 +47,61 @@ flutter:
         - asset: assets/fonts/icomoon.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #  - family: icomoon
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+    - family: SFProBlack
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Black.otf
+    - family: SFProBlackItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-BlackItalic.otf
+    - family: SFProBold
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Bold.otf
+    - family: SFProBoldItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-BoldItalic.otf
+    - family: SFProHeavy
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Heavy.otf
+        - weight: 800
+    - family: SFProHeavyItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-HeavyItalic.otf
+    - family: SFProLight
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Light.otf
+    - family: SFProLightItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-LightItalic.otf
+    - family: SFProMedium
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Medium.otf
+    - family: SFProMediumItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-MediumItalic.otf
+    - family: SFPro
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+    - family: SFProItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-RegularItalic.otf
+    - family: SFProSemiBold
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Semibold.otf
+    - family: SFProSemiBoldItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-SemiboldItalic.otf
+    - family: SFProThin
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Thin.otf
+    - family: SFProThinItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-ThinItalic.otf
+    - family: SFProUltraLight
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Ultralight.otf
+    - family: SFProUltraLightItalic
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-UltralightItalic.otf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
