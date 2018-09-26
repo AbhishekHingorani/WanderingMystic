@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter/rendering.dart';
 import 'travel_packages/pakage_list.dart';
+import 'travel_packages/package_list_item.dart';
 
-void main() => runApp(new MyApp());
+void main(){ 
+  //debugPaintSizeEnabled = true;
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
 
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
           body: TabBarView(
             children: [
               new Container(
-                child: Center(child: Text("Home")),
+                child: Center(child: PackageListItem()),
                 color: Colors.white,
               ),
               new Container(

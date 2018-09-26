@@ -29,12 +29,12 @@ class TravelSearchArea extends StatelessWidget {
               style: const TextStyle(
                   fontFamily: "SFProHeavy",
                   fontWeight: FontWeight.w800,
-                  fontSize: 25.0,
+                  fontSize: 23.0,
                   color: Colors.white),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+            padding: const EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 12.0),
             child: Container(
               padding: const EdgeInsets.all(5.0),
               alignment: Alignment.center,
@@ -44,7 +44,7 @@ class TravelSearchArea extends StatelessWidget {
                   borderRadius: new BorderRadius.circular(12.0),
                   boxShadow: [
                     new BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.3),
+                        color: Color.fromRGBO(0, 0, 0, 0.25),
                         blurRadius: 20.0,
                         offset: Offset(0.0, 3.0))
                   ]),
@@ -52,6 +52,7 @@ class TravelSearchArea extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   suffixIcon: Icon(Icons.search, color: Colors.grey,),
+                  hintStyle: TextStyle(color: Colors.grey),
                   hintText: "Search for places, tags, destinations...",
                   contentPadding: EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 0.0),
                 ),
