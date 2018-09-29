@@ -9,6 +9,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   scoped_model: ^0.3.0
+  lazy_load_scrollview: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -45,8 +46,6 @@ flutter:
     - family: icomoon
       fonts:
         - asset: assets/fonts/icomoon.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
     - family: SFProBlack
       fonts:
         - asset: assets/fonts/SF-Pro-Display-Black.otf
@@ -62,7 +61,6 @@ flutter:
     - family: SFProHeavy
       fonts:
         - asset: assets/fonts/SF-Pro-Display-Heavy.otf
-        - weight: 800
     - family: SFProHeavyItalic
       fonts:
         - asset: assets/fonts/SF-Pro-Display-HeavyItalic.otf

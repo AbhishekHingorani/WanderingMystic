@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'travel_search_area.dart';
+import './package_list/package_list.dart';
 
-class PackageList extends StatelessWidget {
+class TravelPackages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,7 @@ class PackageList extends StatelessWidget {
         },
         body: Container(
           color: Colors.white,
-          child: new ListView.builder(
-            padding: new EdgeInsets.all(8.0),
-            itemExtent: 20.0,
-            itemBuilder: (BuildContext context, int index) {
-              return new Text('entry $index');
-            },
-          ),
+          child: PackageList(),
         ));
   }
 }
