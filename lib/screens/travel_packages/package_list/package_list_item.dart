@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../data_models/models/package_item_schema.dart';
+import '../../../data_models/models/package_item_schema.dart';
 
 class PackageListItem extends StatelessWidget {
 
@@ -27,7 +27,7 @@ class PackageListItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(packageItem.imageUrl),
+                image: NetworkImage(packageItem.imageUrl),
                 //image: AssetImage("assets/images/varanasi.jpg"),
               ),
             ),

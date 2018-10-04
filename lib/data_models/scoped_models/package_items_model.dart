@@ -1,8 +1,12 @@
 import "package:scoped_model/scoped_model.dart";
 import '../models/package_item_schema.dart';
+import 'package:http/http.dart' as http;
+import '../../utils/backend_calls.dart';
+import 'dart:convert';
 
 class PackageItemsModel extends Model {
 
+  BackendCalls backendCalls = BackendCalls();
   List<PackageItemSchema> _packages = [];
   int _selectedPackageIndex;
 
@@ -16,7 +20,19 @@ class PackageItemsModel extends Model {
   );
 
   PackageItemsModel(){
-    _packages.add(temp);
+    //_packages.add(temp);
+    
+  }
+
+  void fetchPackages(){
+    print("asdasdasdasdasdasdasd");
+    backendCalls.getPackages().then((http.Response response){
+      var data = json.decode(response.body);
+      data.forEach((data){
+        _packages.add(PackageItemSchema.fromJson(data));
+      });
+      notifyListeners(); 
+    });
   }
 
   List<PackageItemSchema> get packages{

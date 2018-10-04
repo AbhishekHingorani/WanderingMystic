@@ -4,8 +4,9 @@ import 'package:scoped_model/scoped_model.dart';
 import './data_models/models/package_item_schema.dart';
 import './data_models/scoped_models/package_items_model.dart';
 
-import 'travel_packages/travel_packages.dart';
-import 'travel_packages/package_list/package_list_item.dart';
+import 'screens/travel_packages/travel_packages.dart';
+import 'screens/travel_packages/package_list/package_list_item.dart';
+import 'screens/feedback_form.dart';
 
 void main(){ 
   //debugPaintSizeEnabled = true;
@@ -30,16 +31,7 @@ class MyApp extends StatelessWidget {
             body: TabBarView(
               children: [
                 new Container(
-                  child: Center(child: PackageListItem(
-                    packageItem: new PackageItemSchema(
-                      title: "VARANASI", 
-                      subtitle: "SERENE FAMILY TRIP",
-                      price: "20,000",
-                      days: "3",
-                      nights: "2",
-                      imageUrl: "assets/images/varanasi.jpg"
-                    ),
-                  )),
+                  child: Center(child: FeedbackForm()),
                   color: Colors.white,
                 ),
                 new Container(

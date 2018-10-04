@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+
 import 'travel_search_area.dart';
+import '../../data_models/scoped_models/package_items_model.dart';
 import './package_list/package_list.dart';
 
 class TravelPackages extends StatelessWidget {
@@ -23,7 +26,13 @@ class TravelPackages extends StatelessWidget {
         },
         body: Container(
           color: Colors.white,
-          child: PackageList(),
+          child: _buildPackageList(context),
         ));
+  }
+
+  Widget _buildPackageList(BuildContext context){
+    return ScopedModelDescendant<PackageItemsModel>(builder: (BuildContext context, Widget child, PackageItemsModel model){
+      return PackageList(model);
+    });
   }
 }

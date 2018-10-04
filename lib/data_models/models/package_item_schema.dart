@@ -16,4 +16,15 @@ class PackageItemSchema {
     @required this.nights,
     @required this.imageUrl,
   });
+
+  factory PackageItemSchema.fromJson(Map<String, dynamic> json) {
+    return PackageItemSchema(
+      title: json['title'],
+      subtitle: json['subtitle'],
+      price: json['price'],
+      days: json['days'],
+      nights: json['nights'],
+      imageUrl: json['imageUrl'],
+    );
+  }
 }
