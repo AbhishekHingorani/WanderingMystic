@@ -10,6 +10,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   scoped_model: ^0.3.0
   lazy_load_scrollview: ^0.0.2
+  photo_view: ^0.0.10
 
 dev_dependencies:
   flutter_test:

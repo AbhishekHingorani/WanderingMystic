@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
 import 'package:scoped_model/scoped_model.dart';
-import './data_models/models/package_item_schema.dart';
 import './data_models/scoped_models/package_items_model.dart';
 
+import './data_models/models/package_item_schema.dart';
 import 'screens/travel_packages/travel_packages.dart';
-import 'screens/travel_packages/package_list/package_list_item.dart';
+import 'screens/single_package_details/single_package_detail.dart';
 import 'screens/feedback_form.dart';
 
 void main(){ 
@@ -24,14 +24,23 @@ class MyApp extends StatelessWidget {
     return ScopedModel<PackageItemsModel>(
       model: PackageItemsModel(),
       child: MaterialApp(
-        theme: ThemeData(fontFamily: 'SFProHeavy'),
+        theme: ThemeData(
+          fontFamily: 'SFProHeavy',
+        ),
         home: DefaultTabController(
           length: 4,
           child: new Scaffold(
             body: TabBarView(
               children: [
                 new Container(
-                  child: Center(child: FeedbackForm()),
+                  child: Center(child: SinglePackageDetails(PackageItemSchema(
+                    title: "VENTURE VARANASI", 
+                    subtitle: "SERENE FAMILY TRIP",
+                    price: "20,000",
+                    days: "3",
+                    nights: "2",
+                    imageUrl: "http://www.varthabharati.in/sites/default/files/images/articles/2018/07/5/141416.jpg"
+                  ))),
                   color: Colors.white,
                 ),
                 new Container(

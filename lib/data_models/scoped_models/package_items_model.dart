@@ -9,6 +9,7 @@ class PackageItemsModel extends Model {
   BackendCalls backendCalls = BackendCalls();
   List<PackageItemSchema> _packages = [];
   int _selectedPackageIndex;
+  bool _isLoading = false;
 
   PackageItemSchema temp = new PackageItemSchema(
     title: "VENTURE VARANASI", 
@@ -19,24 +20,26 @@ class PackageItemsModel extends Model {
     imageUrl: "assets/images/varanasi.jpg"
   );
 
-  PackageItemsModel(){
-    //_packages.add(temp);
-    
-  }
-
   void fetchPackages(){
-    print("asdasdasdasdasdasdasd");
-    backendCalls.getPackages().then((http.Response response){
-      var data = json.decode(response.body);
-      data.forEach((data){
-        _packages.add(PackageItemSchema.fromJson(data));
+    if(_packages.isEmpty){
+      _isLoading = true;
+      backendCalls.getPackages().then((http.Response response){
+        var data = json.decode(response.body);
+        data.forEach((data){
+          _packages.add(PackageItemSchema.fromJson(data));
+        });
+        _isLoading = false;
+        notifyListeners(); 
       });
-      notifyListeners(); 
-    });
+    } 
   }
 
   List<PackageItemSchema> get packages{
     return List.from(_packages);
+  }
+
+  bool get isPackagesLoading{
+    return _isLoading;
   }
 
   void addPackage(PackageItemSchema package) {

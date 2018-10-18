@@ -17,8 +17,10 @@ class TravelPackages extends StatelessWidget {
               expandedHeight: MediaQuery.of(context).size.height * 0.17,
               floating: true,
               snap: true,
+              pinned: true,
               backgroundColor: Color.fromRGBO(235, 139, 123, 1.0), //Background Color of AppBar when scrolled
               flexibleSpace: FlexibleSpaceBar(
+                title: Text("data"),
                 background: TravelSearchArea(),
               ),
             ),

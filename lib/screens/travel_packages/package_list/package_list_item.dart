@@ -105,7 +105,7 @@ class PackageListItem extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.fromLTRB(20.0, 0.0, 0.0, 20.0), 
                     child: Text(
-                      packageItem.nights + " NIGHTS" + packageItem.days + " DAYS",
+                      packageItem.nights + " NIGHTS " + packageItem.days + " DAYS",
                       textAlign: TextAlign.left, 
                       overflow: TextOverflow.ellipsis, 
                       style: TextStyle(
