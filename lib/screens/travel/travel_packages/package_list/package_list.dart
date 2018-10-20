@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
-import '../../../data_models/scoped_models/package_items_model.dart';
-import '../../../data_models/models/package_item_schema.dart';
+import '../../../../data_models/scoped_models/main_model.dart';
+import '../../../../data_models/models/package.dart';
 import './package_list_item.dart';
 import '../../single_package_details/single_package_detail.dart';
 
 class PackageList extends StatefulWidget {
 
-  PackageItemsModel model;
+  MainModel model;
 
   PackageList(this.model);
 
@@ -27,7 +27,7 @@ class _PackageListState extends State<PackageList> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<PackageItemsModel>(builder: (BuildContext context, Widget child, PackageItemsModel model){
+    return ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model){
 
       Widget content = Center(child: Text("No Packages found"));
 
@@ -58,7 +58,7 @@ class _PackageListState extends State<PackageList> {
     },);
   }
 
-  GestureDetector buildListItem(PackageItemSchema package, int index){
+  GestureDetector buildListItem(Package package, int index){
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(

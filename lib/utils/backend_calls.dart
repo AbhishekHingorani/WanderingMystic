@@ -18,4 +18,19 @@ class BackendCalls {
       headers: headers
     );
   }
+
+  Future<http.Response> getSinglePackageDetails(String id) {
+    return http.get(
+      Uri.encodeFull(url + "/packageDetails/" + id + ".json"),
+      headers: headers
+    );
+  }
+
+  Future<http.Response> getProductsList() {
+    return http.get(
+      Uri.encodeFull(url + "/products.json"),
+      headers: headers
+    );
+  }
+
 }

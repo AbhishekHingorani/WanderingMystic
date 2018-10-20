@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
 import 'package:scoped_model/scoped_model.dart';
-import './data_models/scoped_models/package_items_model.dart';
+import './data_models/scoped_models/main_model.dart';
 
-import './data_models/models/package_item_schema.dart';
-import 'screens/travel_packages/travel_packages.dart';
-import 'screens/single_package_details/single_package_detail.dart';
-import 'screens/feedback_form.dart';
+import './data_models/models/list_product.dart';
+import 'screens/travel/travel_packages/travel_packages.dart';
+import 'screens/product/product_list_page/product_list_item.dart';
+import 'screens/product/product_list_page/product_list_page.dart';
 
 void main(){ 
   //debugPaintSizeEnabled = true;
@@ -21,11 +21,13 @@ class MyApp extends StatelessWidget {
   static const IconData userIcon = const IconData(0xe903, fontFamily: "icomoon");
 
   Widget build(BuildContext context) {
-    return ScopedModel<PackageItemsModel>(
-      model: PackageItemsModel(),
+    return ScopedModel<MainModel>(
+      model: MainModel(),
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: 'SFProHeavy',
+          primaryColor: Color.fromRGBO(253, 139, 123, 1.0),
+          accentColor: Color.fromRGBO(255, 140, 90, 1.0),
         ),
         home: DefaultTabController(
           length: 4,
@@ -33,20 +35,33 @@ class MyApp extends StatelessWidget {
             body: TabBarView(
               children: [
                 new Container(
-                  child: Center(child: SinglePackageDetails(PackageItemSchema(
-                    title: "VENTURE VARANASI", 
-                    subtitle: "SERENE FAMILY TRIP",
-                    price: "20,000",
-                    days: "3",
-                    nights: "2",
-                    imageUrl: "http://www.varthabharati.in/sites/default/files/images/articles/2018/07/5/141416.jpg"
-                  ))),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        ProductListItem(
+                          product: ListProduct(
+                            id: "1", 
+                            name: "IPHONE",
+                            price: "20,000",
+                            imageUrl: "assets/images/iphone.jpg"
+                          )
+                        ),
+                        ProductListItem(
+                          product: ListProduct(
+                            id: "1", 
+                            name: "IPHONE",
+                            price: "20,000",
+                            imageUrl: "assets/images/iphone.jpg"
+                          )
+                        ),
+                        
+                      ],
+                    )
+                  ),
                   color: Colors.white,
                 ),
-                new Container(
-                  child: Center(child: Text("Products")),
-                  color: Colors.white,
-                ),
+                new ProductListPage(),
                 new TravelPackages(),
                 new Container(
                   child: Center(child: Text("Profile")),

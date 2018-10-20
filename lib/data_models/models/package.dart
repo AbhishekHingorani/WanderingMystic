@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PackageItemSchema {
+class Package {
+  final String id;
   final String title;
   final String subtitle;
   final String price;
@@ -8,7 +9,8 @@ class PackageItemSchema {
   final String nights;
   final String imageUrl;
 
-  PackageItemSchema ({
+  Package ({
+    @required this.id,
     @required this.title,
     @required this.subtitle,
     @required this.price,
@@ -17,8 +19,9 @@ class PackageItemSchema {
     @required this.imageUrl,
   });
 
-  factory PackageItemSchema.fromJson(Map<String, dynamic> json) {
-    return PackageItemSchema(
+  factory Package.fromJson(Map<String, dynamic> json) {
+    return Package(
+      id: json["id"],
       title: json['title'],
       subtitle: json['subtitle'],
       price: json['price'],

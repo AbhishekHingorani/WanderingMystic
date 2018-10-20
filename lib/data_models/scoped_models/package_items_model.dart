@@ -1,5 +1,5 @@
 import "package:scoped_model/scoped_model.dart";
-import '../models/package_item_schema.dart';
+import '../models/package.dart';
 import 'package:http/http.dart' as http;
 import '../../utils/backend_calls.dart';
 import 'dart:convert';
@@ -7,11 +7,11 @@ import 'dart:convert';
 class PackageItemsModel extends Model {
 
   BackendCalls backendCalls = BackendCalls();
-  List<PackageItemSchema> _packages = [];
-  int _selectedPackageIndex;
+  List<Package> _packages = [];
   bool _isLoading = false;
 
-  PackageItemSchema temp = new PackageItemSchema(
+  Package temp = new Package(
+    id: "1",
     title: "VENTURE VARANASI", 
     subtitle: "SERENE FAMILY TRIP",
     price: "20,000",
@@ -26,7 +26,7 @@ class PackageItemsModel extends Model {
       backendCalls.getPackages().then((http.Response response){
         var data = json.decode(response.body);
         data.forEach((data){
-          _packages.add(PackageItemSchema.fromJson(data));
+          _packages.add(Package.fromJson(data));
         });
         _isLoading = false;
         notifyListeners(); 
@@ -34,7 +34,7 @@ class PackageItemsModel extends Model {
     } 
   }
 
-  List<PackageItemSchema> get packages{
+  List<Package> get packages{
     return List.from(_packages);
   }
 
@@ -42,7 +42,7 @@ class PackageItemsModel extends Model {
     return _isLoading;
   }
 
-  void addPackage(PackageItemSchema package) {
+  void addPackage(Package package) {
     _packages.add(package);
   }
 
@@ -50,10 +50,6 @@ class PackageItemsModel extends Model {
     _packages.add(temp);
     _packages.add(temp);
     _packages.add(temp);
-  }
-
-  void selectPackage(int index){
-    _selectedPackageIndex = index;
   }
 }
 

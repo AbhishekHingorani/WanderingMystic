@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../data_models/models/package_item_schema.dart';
+import '../../../../data_models/models/package.dart';
 
 class PackageListItem extends StatelessWidget {
 
-  PackageItemSchema packageItem;
+  Package packageItem;
 
   PackageListItem({this.packageItem});
 
