@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
                             id: "1", 
                             name: "IPHONE",
                             price: "20,000",
-                            imageUrl: "assets/images/iphone.jpg"
+                            imageUrl: "https://image.ibb.co/d3rFML/1485982254-blob.jpg"
                           )
                         ),
                         ProductListItem(
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
                             id: "1", 
                             name: "IPHONE",
                             price: "20,000",
-                            imageUrl: "assets/images/iphone.jpg"
+                            imageUrl: "https://image.ibb.co/d3rFML/1485982254-blob.jpg"
                           )
                         ),
                         

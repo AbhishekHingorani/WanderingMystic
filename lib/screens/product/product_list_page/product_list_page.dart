@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+
+import '../../../data_models/scoped_models/main_model.dart';
 import './product_search_area.dart';
 import './product_list.dart';
 
@@ -30,9 +33,9 @@ class ProductListPage extends StatelessWidget {
   }
 
   Widget _buildProductList(BuildContext context){
-    //return ScopedModelDescendant<PackageItemsModel>(builder: (BuildContext context, Widget //child, PackageItemsModel model){
-      return ProductList(2);
-    //});
+    return ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model){
+      return ProductList(model);
+    });
   }
 
 }

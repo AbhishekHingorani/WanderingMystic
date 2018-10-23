@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+import '../../../data_models/scoped_models/main_model.dart';
 
 class TravelSearchArea extends StatelessWidget {
   @override
@@ -46,21 +48,31 @@ class TravelSearchArea extends StatelessWidget {
                     new BoxShadow(
                         color: Color.fromRGBO(0, 0, 0, 0.25),
                         blurRadius: 20.0,
-                        offset: Offset(0.0, 3.0))
-                  ]),
-              child: new TextFormField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  suffixIcon: Icon(Icons.search, color: Colors.grey,),
-                  hintStyle: TextStyle(color: Colors.grey),
-                  hintText: "Search for places, tags, destinations...",
-                  contentPadding: EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 0.0),
-                ),
+                        offset: Offset(0.0, 3.0)
+                    )
+                  ]
               ),
+
+              child: ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model){
+                return TextFormField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    suffixIcon: Icon(Icons.search, color: Colors.grey,),
+                    hintStyle: TextStyle(color: Colors.grey),
+                    hintText: "Search for places, tags, destinations...",
+                    contentPadding: EdgeInsets.fromLTRB(25.0, 10.0, 0.0, 0.0),
+                  ),
+                  onFieldSubmitted: (v) => onSearch(v, model),
+                );
+              })
             ),
           )
         ],
       ),
     );
+  }
+
+  onSearch(value, MainModel model){
+    model.searchPackages(value);
   }
 }

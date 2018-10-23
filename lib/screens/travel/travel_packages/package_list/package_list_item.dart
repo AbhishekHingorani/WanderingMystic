@@ -3,7 +3,7 @@ import '../../../../data_models/models/package.dart';
 
 class PackageListItem extends StatelessWidget {
 
-  Package packageItem;
+  final Package packageItem;
 
   PackageListItem({this.packageItem});
 

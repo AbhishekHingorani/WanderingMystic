@@ -34,6 +34,20 @@ class PackageItemsModel extends Model {
     } 
   }
 
+  void searchPackages(String value){
+    _isLoading = true;
+    notifyListeners();
+    _packages.removeRange(0, _packages.length);
+    backendCalls.searchPackages(value).then((http.Response response){
+      var data = json.decode(response.body);
+      data.forEach((data){
+        _packages.add(Package.fromJson(data));
+      });
+      _isLoading = false;
+      notifyListeners(); 
+    });
+  }
+
   List<Package> get packages{
     return List.from(_packages);
   }

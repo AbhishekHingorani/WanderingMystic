@@ -14,7 +14,7 @@ class ProductItemsModel extends Model {
     id: "1",
     name: "IPHONE 7", 
     price: "20,000",
-    imageUrl: "assets/images/varanasi.jpg"
+    imageUrl: "https://image.ibb.co/mfjkML/iphone.jpg"
   );
 
   void fetchProducts(){

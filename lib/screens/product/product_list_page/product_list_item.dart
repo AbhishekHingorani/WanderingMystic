@@ -3,7 +3,7 @@ import '../../../data_models/models/list_product.dart';
 
 class ProductListItem extends StatelessWidget {
 
-  ListProduct product;
+  final ListProduct product;
 
   ProductListItem({this.product});
 
@@ -28,7 +28,7 @@ class ProductListItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(product.imageUrl),
+                image: NetworkImage(product.imageUrl),
                 //image: AssetImage("assets/images/varanasi.jpg"),
               ),
             ),

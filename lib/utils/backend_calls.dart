@@ -19,6 +19,14 @@ class BackendCalls {
     );
   }
 
+  Future<http.Response> searchPackages(String value) {
+    return http.get(
+      Uri.encodeFull(url + "/searchPackages.json"),
+      headers: headers,
+      //body: "{'query' : '" + value + "'}"
+    );
+  }
+
   Future<http.Response> getSinglePackageDetails(String id) {
     return http.get(
       Uri.encodeFull(url + "/packageDetails/" + id + ".json"),
