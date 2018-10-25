@@ -7,13 +7,11 @@ import './image_gallery.dart';
 
 class SinglePackageDetails extends StatefulWidget {
 
-  Package package;
-  BackendCalls backendCalls = BackendCalls();
+  final Package package;
+  final BackendCalls backendCalls = BackendCalls();
   
 
-  SinglePackageDetails(this.package){
-    
-  }
+  SinglePackageDetails(this.package);
 
   @override
     State<StatefulWidget> createState() => new _SinglePackageDetailsState();
@@ -24,18 +22,17 @@ class _SinglePackageDetailsState extends State<SinglePackageDetails>{
   var data;
   
   @override
-    void initState() {
-      print("object");
-      widget.backendCalls.getSinglePackageDetails(widget.package.id).then((http.Response response){
-        data = json.decode(response.body); 
-        setState(() {
-          print(data);
-        });
-        
+  void initState() {
+    print("object");
+    widget.backendCalls.getSinglePackageDetails(widget.package.id).then((http.Response response){
+      data = json.decode(response.body); 
+      setState(() {
+        print(data);
       });
-    // TODO: implement initState
-      super.initState();
-    }
+      
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

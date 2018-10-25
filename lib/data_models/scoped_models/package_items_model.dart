@@ -17,7 +17,7 @@ class PackageItemsModel extends Model {
     price: "20,000",
     days: "3",
     nights: "2",
-    imageUrl: "assets/images/varanasi.jpg"
+    imageUrl: "http://www.varthabharati.in/sites/default/files/images/articles/2018/07/5/141416.jpg"
   );
 
   void fetchPackages(){
@@ -32,6 +32,20 @@ class PackageItemsModel extends Model {
         notifyListeners(); 
       });
     } 
+  }
+
+  void refreshPackages(){
+    _isLoading = true;
+    notifyListeners();
+    _packages.removeRange(0, _packages.length);
+    backendCalls.getPackages().then((http.Response response){
+      var data = json.decode(response.body);
+      data.forEach((data){
+        _packages.add(Package.fromJson(data));
+      });
+      _isLoading = false;
+      notifyListeners(); 
+    });
   }
 
   void searchPackages(String value){

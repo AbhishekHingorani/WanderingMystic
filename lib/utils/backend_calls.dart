@@ -19,6 +19,13 @@ class BackendCalls {
     );
   }
 
+  Future<http.Response> getSinglePackageDetails(String id) {
+    return http.get(
+      Uri.encodeFull(url + "/packageDetails/" + id + ".json"),
+      headers: headers
+    );
+  }
+
   Future<http.Response> searchPackages(String value) {
     return http.get(
       Uri.encodeFull(url + "/searchPackages.json"),
@@ -27,16 +34,16 @@ class BackendCalls {
     );
   }
 
-  Future<http.Response> getSinglePackageDetails(String id) {
+  Future<http.Response> getProductsList() {
     return http.get(
-      Uri.encodeFull(url + "/packageDetails/" + id + ".json"),
+      Uri.encodeFull(url + "/products.json"),
       headers: headers
     );
   }
 
-  Future<http.Response> getProductsList() {
+  Future<http.Response> getSingleProductDetails(String id) {
     return http.get(
-      Uri.encodeFull(url + "/products.json"),
+      Uri.encodeFull(url + "/productDetails/" + id + ".json"),
       headers: headers
     );
   }
