@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:async';
+import 'dart:convert';
 
 class BackendCalls {
   static final BackendCalls _singleton = new BackendCalls._internal();
@@ -45,6 +46,25 @@ class BackendCalls {
     return http.get(
       Uri.encodeFull(url + "/productDetails/" + id + ".json"),
       headers: headers
+    );
+  }
+
+  Future<http.Response> addProductToCart(String id){
+    print("fired");
+    return http.post(
+      Uri.encodeFull(url + "/cart.json"),
+      headers: headers,
+      body: json.encode({
+        "id": id,
+        "count": "1"
+      })
+    );
+  }
+
+  Future<http.Response> getCartItems(String id){
+    return http.get(
+      Uri.encodeFull(url + "/cart.json"),
+      headers: headers,
     );
   }
 

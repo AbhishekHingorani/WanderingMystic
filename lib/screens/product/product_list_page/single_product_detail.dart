@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../data_models/models/list_product.dart';
+import '../../../data_models/scoped_models/main_model.dart';
+import 'package:scoped_model/scoped_model.dart';
 import 'package:http/http.dart' as http;
 import '../../../utils/backend_calls.dart';
 import 'dart:convert';
@@ -196,12 +198,14 @@ class _SingleProductDetailState extends State<SingleProductDetail>{
 
             Material(
               color: Colors.transparent,
-              child: InkWell(
-                onTap: (){print("tapped");},
-                child: Container(
-                  height: 50.0,
-                ),
-              ),
+              child: ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model){
+                return InkWell(
+                  onTap: (){
+                    model.addProductToCart(widget.product);
+                  },
+                  child: _buildLoading(model)
+                );
+              }),
             ),
           ],
         ),
@@ -210,6 +214,40 @@ class _SingleProductDetailState extends State<SingleProductDetail>{
 
     return content;
   } 
+
+  Widget _buildLoading(MainModel model){
+    Widget content;
+
+    if(model.isProductBeingAddedToCart == false){
+      content = Container(height: 50.0,);
+    }else{
+      content = Container(
+        alignment: Alignment.center,
+        height: 50.0,
+        decoration: BoxDecoration(
+          gradient: new LinearGradient(
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+            colors: [
+              Color.fromRGBO(235, 139, 123, 1.0),
+              Color.fromRGBO(255, 140, 90, 1.0)
+              //Color.fromRGBO(226, 197, 125, 1.0)
+            ],
+          ),
+        ),
+        child: Container(
+          height: 20.0,
+          width: 20.0,
+          child: CircularProgressIndicator(
+            valueColor: new AlwaysStoppedAnimation<Color>(Colors.white), 
+            strokeWidth: 2.0,
+          ),
+        )
+      );
+    }
+
+    return content;
+  }
 
   NetworkImage _buildImages(i){
     return NetworkImage(data["images"][i]);

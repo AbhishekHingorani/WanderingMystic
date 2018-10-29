@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 //import 'package:flutter/rendering.dart';
 import 'package:scoped_model/scoped_model.dart';
 import './data_models/scoped_models/main_model.dart';
-
-import './data_models/models/list_product.dart';
 import 'screens/travel/travel_packages/travel_packages.dart';
-import 'screens/product/product_list_page/product_list_item.dart';
 import 'screens/product/product_list_page/product_list_page.dart';
+import 'screens/product/product_list_page/cart/cart.dart';
 
 void main(){ 
   //debugPaintSizeEnabled = true;
@@ -34,33 +32,7 @@ class MyApp extends StatelessWidget {
           child: new Scaffold(
             body: TabBarView(
               children: [
-                new Container(
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        ProductListItem(
-                          product: ListProduct(
-                            id: "1", 
-                            name: "IPHONE",
-                            price: "20,000",
-                            imageUrl: "https://image.ibb.co/d3rFML/1485982254-blob.jpg"
-                          )
-                        ),
-                        ProductListItem(
-                          product: ListProduct(
-                            id: "1", 
-                            name: "IPHONE",
-                            price: "20,000",
-                            imageUrl: "https://image.ibb.co/d3rFML/1485982254-blob.jpg"
-                          )
-                        ),
-                        
-                      ],
-                    )
-                  ),
-                  color: Colors.white,
-                ),
+                new Cart(),
                 new ProductListPage(),
                 new TravelPackages(),
                 new Container(

@@ -48,5 +48,7 @@ class ProductItemsModel extends Model {
     _products.add(temp2);
     _products.add(temp2);
   }
+
+  
 }
 

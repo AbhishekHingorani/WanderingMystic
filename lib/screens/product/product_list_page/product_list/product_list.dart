@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
-import '../../../data_models/scoped_models/main_model.dart';
-import '../../../data_models/models/list_product.dart';
+import '../../../../data_models/scoped_models/main_model.dart';
+import '../../../../data_models/models/list_product.dart';
 import './product_list_item.dart';
-import './single_product_detail.dart';
+import '../single_product_detail.dart';
 
 class ProductList extends StatefulWidget {
 

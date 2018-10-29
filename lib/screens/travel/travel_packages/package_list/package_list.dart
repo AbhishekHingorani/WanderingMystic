@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 import '../../../../data_models/scoped_models/main_model.dart';
@@ -27,26 +26,25 @@ class _PackageListState extends State<PackageList> {
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<MainModel>(builder: (BuildContext context, Widget child, MainModel model){
 
       Widget content = Center(child: Text("No Packages found"));
 
-      if(model.isPackagesLoading){
+      if(widget.model.isPackagesLoading){
         content = Center(child: CircularProgressIndicator(),);
       }
-      else if(model.packages.length > 0 && !model.isPackagesLoading){
+      else if(widget.model.packages.length > 0 && !widget.model.isPackagesLoading){
         
         content = LazyLoadScrollView(
           onEndOfPage: () {
             setState(() {
-              model.addMorePackages();
+              widget.model.addMorePackages();
             });
           },
 
           child: ListView.builder(
-            itemCount: model.packages.length,
+            itemCount: widget.model.packages.length,
             itemBuilder: (context, index) {
-              return buildListItem(model.packages[index], index);
+              return buildListItem(widget.model.packages[index], index);
             },
           ),
         );  
@@ -54,8 +52,6 @@ class _PackageListState extends State<PackageList> {
       }
 
       return content;
-
-    },);
   }
 
   GestureDetector buildListItem(Package package, int index){
