@@ -4,7 +4,7 @@ import 'package:scoped_model/scoped_model.dart';
 import './data_models/scoped_models/main_model.dart';
 import 'screens/travel/travel_packages/travel_packages.dart';
 import 'screens/product/product_list_page/product_list_page.dart';
-import 'screens/product/product_list_page/cart/cart.dart';
+import 'screens/login_signup/login.dart';
 
 void main(){ 
   //debugPaintSizeEnabled = true;
@@ -27,12 +27,22 @@ class MyApp extends StatelessWidget {
           primaryColor: Color.fromRGBO(253, 139, 123, 1.0),
           accentColor: Color.fromRGBO(255, 140, 90, 1.0),
         ),
-        home: DefaultTabController(
+        home: _buildLoginScreen()
+      ),
+    );
+  }
+
+  Widget _buildLoginScreen(){
+    return Login();
+  }
+
+  Widget _buildHomeScreen(){
+    return DefaultTabController(
           length: 4,
           child: new Scaffold(
             body: TabBarView(
               children: [
-                new Cart(),
+                new Login(),
                 new ProductListPage(),
                 new TravelPackages(),
                 new Container(
@@ -73,8 +83,6 @@ class MyApp extends StatelessWidget {
             ),
             backgroundColor: Color.fromRGBO(64, 46, 50, 1.0),
           ),
-        ),
-      ),
-    );
+        );
   }
 }

@@ -34,6 +34,8 @@ flutter:
   assets:
     - assets/images/varanasi.jpg
     - assets/images/iphone.jpg
+    - assets/images/loginbackground.png
+    - assets/images/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
