@@ -32,7 +32,16 @@ class CartModel extends Model {
   }
 
   void addItemToCart(CartItem item) {
-    _cartItems.add(item);
+    bool _added = false;
+    _cartItems.forEach((f){
+      if(f.productId == item.productId){
+        f.quantity++;
+        _added = true;
+      }
+    });
+    if(!_added){
+      _cartItems.add(item);
+    }
   }
 
   void addProductToCart(ListProduct product){

@@ -13,6 +13,9 @@ dependencies:
   photo_view: ^0.0.10
   carousel_pro: ^0.0.13
   flutter_rating: ^0.0.2
+  shared_preferences: ^0.4.3
+  flutter_swiper: ^1.1.4
+  auto_size_text: ^0.2.1
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +55,9 @@ flutter:
     - family: icomoon
       fonts:
         - asset: assets/fonts/icomoon.ttf
+    - family: profilepageicons
+      fonts:
+        - asset: assets/fonts/profilepageicons.ttf
     - family: SFProBlack
       fonts:
         - asset: assets/fonts/SF-Pro-Display-Black.otf

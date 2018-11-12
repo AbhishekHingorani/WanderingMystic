@@ -14,7 +14,7 @@ class TravelPackages extends StatelessWidget {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              expandedHeight: MediaQuery.of(context).size.height * 0.17,
+              expandedHeight: MediaQuery.of(context).size.height * 0.2,
               floating: true,
               snap: true,
               pinned: true,

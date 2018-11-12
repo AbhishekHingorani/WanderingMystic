@@ -103,37 +103,39 @@ class _SingleProductDetailState extends State<SingleProductDetail>{
                 ),
               ),
 
-              Flex(
-                direction: Axis.horizontal,
-                children: <Widget>[
-                  Container(
-                    width: 220.0,
-                    padding: EdgeInsets.only(top: 25.0, bottom: 5.0),
-                    child: Text("INR " + widget.product.price,
-                      style: TextStyle(
-                        fontSize: 20.0, fontFamily: "SFPro"
+              FittedBox(
+                child: Flex(
+                  direction: Axis.horizontal,
+                  children: <Widget>[
+                    Container(
+                      width: 220.0,
+                      padding: EdgeInsets.only(top: 25.0, bottom: 5.0),
+                      child: Text("INR " + widget.product.price,
+                        style: TextStyle(
+                          fontSize: 20.0, fontFamily: "SFPro"
+                        ),
                       ),
                     ),
-                  ),
 
-                  Container(
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.only(top: 15.0),
-                    child: StarRating(
-                      size: 25.0,
-                      rating: rating,
-                      color: Colors.orange,
-                      borderColor: Colors.grey,
-                      starCount: 5,
-                      onRatingChanged: (rating) => setState(
-                        () {
-                          this.rating = rating;
-                        },
+                    Container(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.only(top: 15.0),
+                      child: StarRating(
+                        size: 25.0,
+                        rating: rating,
+                        color: Colors.orange,
+                        borderColor: Colors.grey,
+                        starCount: 5,
+                        onRatingChanged: (rating) => setState(
+                          () {
+                            this.rating = rating;
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  
-                ],
+                    
+                  ],
+                ),
               ),
 
 

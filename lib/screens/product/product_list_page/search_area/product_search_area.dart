@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../utils/backend_calls.dart';
-import '../cart/cart.dart';
+import '../../cart/cart.dart';
 import '../../../../data_models/scoped_models/main_model.dart';
 
 class ProductSearchArea extends StatefulWidget{

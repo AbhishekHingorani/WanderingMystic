@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import './cart_row.dart';
 import 'package:scoped_model/scoped_model.dart';
-import '../../../../data_models/scoped_models/main_model.dart';
+import '../../../data_models/scoped_models/main_model.dart';
+import '../checkout/select_shipping_address.dart';
 
 class Cart extends StatefulWidget{
   @override
@@ -30,7 +31,11 @@ class _CartState extends State<Cart>{
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(100.0, 0.0, 100.0, 20.0),
           child: InkWell(
-            onTap: (){print("checkout");},
+            onTap: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(
+                builder: (BuildContext context) => SelectShippingAddress(model)
+              ));
+            },
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(

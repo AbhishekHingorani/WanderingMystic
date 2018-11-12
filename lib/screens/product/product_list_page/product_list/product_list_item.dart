@@ -4,8 +4,9 @@ import '../../../../data_models/models/list_product.dart';
 class ProductListItem extends StatelessWidget {
 
   final ListProduct product;
+  double height, width;
 
-  ProductListItem({this.product});
+  ProductListItem({this.product, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,8 @@ class ProductListItem extends StatelessWidget {
           offset: Offset(0.0, 5.0)
         )
       ]),
-      height: 220.0,
-      width: MediaQuery.of(context).size.width * 0.45,
+      height: height == null ? 220.0 : height,
+      width: width == null ? MediaQuery.of(context).size.width * 0.45 : width,
       child: Stack(
         children: <Widget>[
           //Background Image

@@ -13,6 +13,13 @@ class BackendCalls {
   String url = "https://wandering-mystic.firebaseio.com";
   Map<String, String> headers = { "Accept" : "application/json" };
 
+  Future<http.Response> login(email, password){
+    return http.get(
+      Uri.encodeFull(url + "/login.json"),
+      headers: headers
+    );
+  }
+
   Future<http.Response> getPackages() {
     return http.get(
       Uri.encodeFull(url + "/packages.json"),
@@ -63,7 +70,21 @@ class BackendCalls {
 
   Future<http.Response> getCartItems(String id){
     return http.get(
-      Uri.encodeFull(url + "/cart.json"),
+      Uri.encodeFull(url + "/cart.json"), //cartItems.json
+      headers: headers,
+    );
+  }
+
+  Future<http.Response> getOrderItems(String id){
+    return http.get(
+      Uri.encodeFull(url + "/order.json"),
+      headers: headers,
+    );
+  }
+
+  Future<http.Response> getShippingAddresses(String id){
+    return http.get(
+      Uri.encodeFull(url + "/address.json"),
       headers: headers,
     );
   }
