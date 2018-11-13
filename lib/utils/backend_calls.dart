@@ -23,7 +23,7 @@ class BackendCalls {
   Future<http.Response> getPackages() {
     return http.get(
       Uri.encodeFull(url + "/packages.json"),
-      headers: headers
+      headers: headers,
     );
   }
 

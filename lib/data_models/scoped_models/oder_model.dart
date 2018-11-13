@@ -36,4 +36,19 @@ class OrderModel extends Model {
   bool get isFetchingOrderItems{
     return _isLoading;
   }
+
+  void addNewOrder(productId, productName, price, imageUrl, quantity){
+    DateTime now = new DateTime.now();
+    _orderItems.add(
+      OrderItem(
+        date: now.day.toString() + "/" + now.month.toString() + "/" + now.year.toString(),
+        imageUrl: imageUrl,
+        price: price,
+        productId: productId,
+        productName: productName,
+        quantity: quantity,
+        status: "ORDERED",
+      )
+    );
+  }
 }

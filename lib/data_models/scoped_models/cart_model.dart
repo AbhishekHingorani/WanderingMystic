@@ -88,6 +88,14 @@ class CartModel extends Model {
   }
 
   int get cartItemsCount {
-    return _cartItems.length;
+    if(_cartItems == null)
+      return 0;
+    else
+      return _cartItems.length;
+  }
+
+  void deleteAllCartItems(){
+    _cartItems = null;
+    notifyListeners();
   }
 }

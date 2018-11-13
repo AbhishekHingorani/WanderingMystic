@@ -49,4 +49,14 @@ class ShippingAddressModel extends Model {
     );
     notifyListeners();
   }
+
+  Address findAddressFromId(String id){
+    Address add;
+    for (var i = 0; i < _shippingAddresses.length; i++) {
+      if(shippingAddresses[i].id == id){
+        add = shippingAddresses[i];
+      }
+    }
+    return add;
+  }
 }

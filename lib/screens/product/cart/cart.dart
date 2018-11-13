@@ -32,9 +32,11 @@ class _CartState extends State<Cart>{
           padding: EdgeInsets.fromLTRB(100.0, 0.0, 100.0, 20.0),
           child: InkWell(
             onTap: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(
-                builder: (BuildContext context) => SelectShippingAddress(model)
-              ));
+              if(model.cartItemsCount > 0){
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (BuildContext context) => SelectShippingAddress(model)
+                ));
+              }
             },
             child: Container(
               alignment: Alignment.center,
